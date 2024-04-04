@@ -36,10 +36,11 @@ const scrol = () => {
         });
     });
 
-    window.addEventListener("scroll", () => {
-        const top = document.documentElement.scrollTop;
-        console.log(top);
-    });
+    // window.addEventListener("scroll", () => {
+    //     const top = document.documentElement.scrollTop;
+    //     console.log(top);
+    // });
 };
 
 export default scrol;
+
