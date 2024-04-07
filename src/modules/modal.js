@@ -1,3 +1,5 @@
+
+
 const modal = () => {
     const buttons = document.querySelectorAll(".popup-btn")
     const closeBtn = document.querySelector(".popup-close")
@@ -26,12 +28,15 @@ const modal = () => {
         })
     })
 
-    closeBtn.addEventListener("click", () => {
-        setInitialStyles()
-    })
-
-
     setInitialStyles()
+    modal.addEventListener("click", (e) => {
+
+        if (!e.target.closest(".popup-content") || e.target.classList.contains("popup-close")) {
+
+            setInitialStyles()
+
+        }
+    })
 
 }
 
