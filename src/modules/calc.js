@@ -1,3 +1,5 @@
+import { animate } from "./helpers"
+
 const calc = (price = 100) => {
     const calcBlock = document.querySelector(".calc-block")
     const calcType = document.querySelector(".calc-type")
@@ -35,29 +37,16 @@ const calc = (price = 100) => {
             totalValue = 0;
         }
 
-        outNum(Math.round(totalValue))
-
-        // total.textContent = totalValue;
-    }
-
-    function outNum(num) {
-        let n = 0;
-        const step = 100; // Шаг изменения числа
-        const time = 1; // Время анимации (в миллисекундах)
-        const interval = Math.round(time / (num / step));
-
-        const animate = () => {
-            n += step;
-            if (n >= num) {
-                clearInterval(animInterval);
-                n = num;
+        animate({
+            duration: 1000,
+            timing(timeFraction) {
+                return timeFraction;
+            },
+            draw(progress) {
+                total.textContent = Math.round(progress * totalValue);
             }
-            total.textContent = n;
-        };
-
-        const animInterval = setInterval(animate, interval);
+        });
     }
-
 
     calcBlock.addEventListener("input", (e) => {
         if (e.target === calcType || e.target === calcSquare ||
