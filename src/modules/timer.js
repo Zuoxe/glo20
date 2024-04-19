@@ -25,7 +25,7 @@ const timer = () => {
 
     const updateClock = () => {
 
-        let getTime = countTimer("4 april 2024, 01:00:59 ")
+        let getTime = countTimer("27 april 2024, 01:00:59 ")
 
         timerHours.textContent = pushZero(getTime.hours);
         timerMinutes.textContent = pushZero(getTime.minutes);
